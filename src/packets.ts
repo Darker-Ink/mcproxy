@@ -3,6 +3,7 @@ import type { Client, Packet } from './conn';
 import { SmartBuffer } from 'smart-buffer';
 import { Vec3 } from 'vec3';
 import { StateData } from './stateData';
+import { ItemLike } from 'prismarine-item';
 
 const MAX_CHUNK_DATA_LENGTH = 31598;
 
@@ -228,7 +229,7 @@ export function generatePackets(stateData: StateData, pclient?: Client): Packet[
                   {
                     entityId: entity.id,
                     slot,
-                    item: itemToNotch(item),
+                    item: itemToNotch(item as ItemLike),
                   },
                 ]);
               return arr;
